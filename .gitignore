@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Model outputs / checkpoints
+customer_service_lora_2k/
+customer_service_full_10k/
+checkpoint-*/
+
+# Hugging Face cache
+.huggingface/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python environment
+*.egg-info/
+
+# Logs
+*.log
