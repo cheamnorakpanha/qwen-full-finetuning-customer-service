@@ -16,9 +16,8 @@ print("Loading base model...")
 base_model = AutoModelForCausalLM.from_pretrained(
     BASE_MODEL,
     dtype=torch.float16,
+    device_map="cuda",
 )
-
-base_model = base_model.to("cuda")
 
 print("Loading LoRA adapter...")
 
@@ -39,7 +38,7 @@ print("GPU:", torch.cuda.get_device_name(0))
 messages = [
     {
         "role": "user",
-        "content": "I received my package, but one of the items is damaged. What should I do?"
+        "content": "What is the capital of France?"
     }
 ]
 
@@ -60,9 +59,8 @@ inputs = tokenizer(
 with torch.no_grad():
     outputs = model.generate(
         **inputs,
-        max_new_tokens=120,
-        temperature=0.7,
-        do_sample=True,
+        max_new_tokens=60,
+        do_sample=False,
     )
 
 
